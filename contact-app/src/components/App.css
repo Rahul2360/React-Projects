@@ -21,3 +21,20 @@ i.icon {
   font-size: 20px;
   cursor: pointer;
 }
+
+.name {
+  padding: 10px 10px 5px 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.description {
+  padding: 0px 10px 0px 10px;
+  font-size: 13px;
+  font-weight: 300;
+
+}
+
+.center-div {
+  text-align: center;
+}
