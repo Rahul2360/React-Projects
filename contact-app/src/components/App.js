@@ -9,19 +9,8 @@ function App() {
 
   const addContactHandler = (contact) => {
     console.log(contact);
+    setContacts([...contacts,contact]);
   };
-  // const contacts = [
-  //   {
-  //     id: "1",
-  //     name: "Rahul",
-  //     email: "r@r.com"
-  //   },
-  //   {
-  //     id: "3",
-  //     name: "Sahil",
-  //     email: "s@s.com"
-  //   }
-  // ]
   return (
     <div className="ui container">
       <Header/>
