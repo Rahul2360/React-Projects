@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 class AddContact extends React.Component {
   // constructor() {
@@ -21,6 +22,7 @@ class AddContact extends React.Component {
         name: "",
         email: ""
       })
+      this.props.navigate('/');
     }
   }
   render() {
@@ -43,4 +45,9 @@ class AddContact extends React.Component {
   }
 }
 
-export default AddContact;
+function WithNavigate(props) {
+  let navigate = useNavigate();
+  return <AddContact {...props} navigate={navigate} />
+}
+
+export default WithNavigate;
