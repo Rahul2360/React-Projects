@@ -5,22 +5,27 @@ import AddContact from './AddContact';
 import ContactList from './ContactList';
 
 function App() {
-  const contacts = [
-    {
-      id: "1",
-      name: "Rahul",
-      email: "r@r.com"
-    },
-    {
-      id: "3",
-      name: "Sahil",
-      email: "s@s.com"
-    }
-  ]
+  const [contacts , setContacts ]= useState([]);
+
+  const addContactHandler = (contact) => {
+    console.log(contact);
+  };
+  // const contacts = [
+  //   {
+  //     id: "1",
+  //     name: "Rahul",
+  //     email: "r@r.com"
+  //   },
+  //   {
+  //     id: "3",
+  //     name: "Sahil",
+  //     email: "s@s.com"
+  //   }
+  // ]
   return (
     <div className="ui container">
       <Header/>
-      <AddContact/>
+      <AddContact addContactHandler={addContactHandler}/>
       <ContactList contacts={contacts}/>
     </div>
   );
