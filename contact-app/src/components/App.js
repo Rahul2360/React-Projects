@@ -18,9 +18,15 @@ function App() {
     return response.data;
   }
 
-  const addContactHandler = (contact) => {
+  const addContactHandler = async (contact) => {
     console.log(contact);
-    setContacts([...contacts, { id: uuid(), ...contact }]);
+    const payload = {
+      id: uuid(), 
+      ...contact
+    }
+    const response = await api.post('/contacts', payload);
+    setContacts([...contacts, response.data])
+    // setContacts([...contacts, { id: uuid(), ...contact }]);
   };
 
   const removeContactHandler = (id) => {
