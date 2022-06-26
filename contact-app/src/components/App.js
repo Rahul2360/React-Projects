@@ -6,6 +6,7 @@ import Header from "./Header";
 import AddContact from './AddContact';
 import ContactList from './ContactList';
 import ContactDetails from "./ContactDetails";
+import EditContact from './EditContact';
 import api from "../api/contacts";
 
 function App() {
@@ -37,6 +38,14 @@ function App() {
     setContacts(newContactList);
   }
 
+  const updateContactHandler = async (contact) => {
+    const response = await api.put(`./contacts/${contact.id}`,contact);
+    const {id, name, email} = response.data;
+    setContacts(contacts.map(contact => {
+      return contact.id === id ? {...response.data} : contact
+    }));
+  }
+
   useEffect(() => {
     // const retriveContact = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     // if (retriveContact) {
@@ -64,6 +73,8 @@ function App() {
           <Route path="/" exact element={<ContactList contacts={contacts} getContactId={removeContactHandler} />} />
           <Route path="/add" element={<AddContact addContactHandler={addContactHandler} />} />
           <Route path="/contact/:id" element={<ContactDetails/>}/>
+          <Route path="/edit" element={<EditContact updateContactHandler={updateContactHandler}/>}/>
+
         </Routes>
       </Router>
       {/* <Header />

@@ -8,7 +8,7 @@ const ContactCard = (props) => {
     <div className="item">
       <img src={user} alt="" className="ui avatar image" />
       <div className="content">
-        <Link to={`contact/${id}`} state={{contact: props.contact}}> 
+        <Link to={`contact/${id}`} state={{ contact: props.contact }}>
           <div className="header">
             {name}
           </div>
@@ -17,7 +17,16 @@ const ContactCard = (props) => {
           </div>
         </Link>
       </div>
-      <i className="trash alternate outline icon" onClick={() => props.clickHandler(id)} style={{ color: "red", marginTop: "7px" }}></i>
+      <i
+        className="trash alternate outline icon"
+        onClick={() => props.clickHandler(id)}
+        style={{ color: "red", marginTop: "7px", marginLeft: "10px" }}></i>
+      <Link to={`edit`} state={{ contact: props.contact }}>
+        <i 
+          className="edit alternate outline icon" 
+          style={{ color: "blue", marginTop: "7px" }}>
+        </i>
+      </Link>
     </div>
   )
 }
