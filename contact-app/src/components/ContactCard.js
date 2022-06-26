@@ -3,6 +3,7 @@ import user from '../images/user.png';
 import { Link } from 'react-router-dom';
 
 const ContactCard = (props) => {
+  console.log(props.contact)
   const { id, name, email } = props.contact
   return (
     <div className="item">
