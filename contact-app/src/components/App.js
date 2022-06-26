@@ -12,6 +12,8 @@ import api from "../api/contacts";
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
   const [contacts, setContacts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   // Retrive Contacts
   const retriveContacts = async () => {
@@ -22,7 +24,7 @@ function App() {
   const addContactHandler = async (contact) => {
     console.log(contact);
     const payload = {
-      id: uuid(), 
+      id: uuid(),
       ...contact
     }
     const response = await api.post('/contacts', payload);
@@ -39,11 +41,23 @@ function App() {
   }
 
   const updateContactHandler = async (contact) => {
-    const response = await api.put(`./contacts/${contact.id}`,contact);
-    const {id, name, email} = response.data;
+    const response = await api.put(`./contacts/${contact.id}`, contact);
+    const { id, name, email } = response.data;
     setContacts(contacts.map(contact => {
-      return contact.id === id ? {...response.data} : contact
+      return contact.id === id ? { ...response.data } : contact
     }));
+  }
+
+  const searchHandler = (searchTerm) => {
+    setSearchTerm(searchTerm);
+    if(searchTerm !== "") {
+      const newContactList = contacts.filter((contact) => {
+        return Object.values(contact).join(' ').toLowerCase().includes(searchTerm.toLowerCase())
+      })
+      setSearchResults(newContactList)
+    } else {
+      setSearchResults(contacts)
+    }
   }
 
   useEffect(() => {
@@ -54,7 +68,7 @@ function App() {
     const getAllContacts = async () => {
       const allContacts = await retriveContacts();
       console.log(allContacts)
-      if(allContacts) {
+      if (allContacts) {
         setContacts(allContacts);
       }
     }
@@ -70,10 +84,17 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" exact element={<ContactList contacts={contacts} getContactId={removeContactHandler} />} />
+          <Route path="/" exact element={
+            <ContactList
+              contacts={searchTerm.length < 1 ? contacts: searchResults}
+              getContactId={removeContactHandler}
+              term={searchTerm}
+              searchKeyword={searchHandler}
+            />
+          } />
           <Route path="/add" element={<AddContact addContactHandler={addContactHandler} />} />
-          <Route path="/contact/:id" element={<ContactDetails/>}/>
-          <Route path="/edit" element={<EditContact updateContactHandler={updateContactHandler}/>}/>
+          <Route path="/contact/:id" element={<ContactDetails />} />
+          <Route path="/edit" element={<EditContact updateContactHandler={updateContactHandler} />} />
 
         </Routes>
       </Router>
