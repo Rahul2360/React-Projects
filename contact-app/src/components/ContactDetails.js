@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 const ContactDetails = (props) => {
   const location = useLocation()
-  const { id, name, email } = location.state.contact
+  const { name, email } = location.state.contact
   return (
     <div className="main">
       <div className="ui card centered">
