@@ -42,8 +42,37 @@ const App = () => {
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-ful">
               Navbar
             </div>
+          </div>
 
+          <div>
+            <Routes>
+              {/* Dashboard */}
+              <Route path='/' element="Ecommerce"></Route>
+              <Route path='/ecommerce' element="Ecommerce"></Route>
 
+              {/* Pages */}
+              <Route path='/orders' element="Orders"></Route>
+              <Route path='/employee' element="Employee"></Route>
+              <Route path='/customers' element="Customers"></Route>
+
+              {/* Apps */}
+              <Route path='/kanban' element="Kanban"></Route>
+              <Route path='/editor' element="Editor"></Route>
+              <Route path='/calendar' element="Calendar"></Route>
+              <Route path='/color-picker' element="ColorPicker"></Route>
+
+              {/* Charts */}
+
+              <Route path='/line' element="Line"></Route>
+              <Route path='/area' element="Area"></Route>
+              <Route path='/bar' element="Bar"></Route>
+              <Route path='/pie' element="Pie"></Route>
+              <Route path='/financial' element="Financial"></Route>
+              <Route path='/color-mapping' element="ColorMapping"></Route>
+              <Route path='/pyramid' element="Pyramid"></Route>
+              <Route path='/stacked' element="Stacked"></Route>
+
+            </Routes>
           </div>
 
         </div>
