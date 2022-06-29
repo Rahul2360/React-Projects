@@ -42,7 +42,7 @@ const App = () => {
             {/* Navbar */}
 
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-ful">
-              <Navbar />
+              {/* <Navbar /> */}
             </div>
           </div>
 
