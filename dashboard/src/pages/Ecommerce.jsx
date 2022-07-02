@@ -3,7 +3,7 @@ import { BsCurrencyDollar } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { Stacked, Pie, Button, SparkLine } from '../components';
 
-import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
+import { earningData, SparklineAreaData, ecomPieChartData, stackedCustomSeries } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Ecommerce = () => {
@@ -81,7 +81,7 @@ const Ecommerce = () => {
             </div>
 
           </div>
-          
+
           <div className="mt-10 flex gap-10 flex-wrap justify-center">
             <div className="border-r-1 border-color m-4 pr-10">
 
@@ -117,9 +117,27 @@ const Ecommerce = () => {
                 />
               </div>
 
+              <div className="mt-10">
+                <Button
+                  text="Download Report"
+                  color="white"
+                  bgColor="blue"
+                  borderRadius="10px"
+                  size="md"
+                />
+              </div>
             </div>
-          </div>
 
+            <div className="">
+              <Stacked
+                width="320px"
+                height="360px"
+                id="stack_chart"
+                data={stackedCustomSeries}
+              />
+            </div>
+
+          </div>
         </div>
 
       </div>
