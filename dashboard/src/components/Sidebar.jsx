@@ -25,7 +25,7 @@ const Sidebar = () => {
             <span>Shoopy</span>
           </Link>
           <TooltipComponent content="Menu" position='BottomCenter'>
-            <button type='button' onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu )} className="text-xl rounded-full p-3 mt-4 md:hidden block hover:bg-light">
+            <button type='button' onClick={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu )} className="text-xl rounded-full p-3 mt-4 block hover:bg-light md:hidden">
               <MdOutlineCancel />
             </button>
           </TooltipComponent>
