@@ -15,7 +15,7 @@ import { Chat, Cart, Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu } = useStateContext();
+  const { activeMenu, setActiveMenu, isClicked, setisClicked, handleClick } = useStateContext();
 
   const NavButton = ({ title, customFunc, color, dotColor, icon }) => (
     <TooltipComponent
@@ -42,20 +42,20 @@ const Navbar = () => {
       <div className="flex">
         <NavButton
           title="Cart"
-          // customFunc={() => handleClick('cart')}
+          customFunc={() => handleClick('cart')}
           color="blue"
           icon={<FiShoppingCart />}
         ></NavButton>
         <NavButton
           title="Chat"
-          // customFunc={() => handleClick('cart')}
+          customFunc={() => handleClick('chat')}
           color="blue"
           dotColor="#03C9D7"
           icon={<BsChatLeft />}
         ></NavButton>
         <NavButton
           title="Notification"
-          // customFunc={() => handleClick('notification')}
+          customFunc={() => handleClick('notification')}
           color="blue"
           dotColor="#03C9D7"
           icon={<RiNotification3Line />}
@@ -64,7 +64,7 @@ const Navbar = () => {
           content="Profile"
           position="BottomCenter"
         >
-          <div className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg" onClick={() => { }}>
+          <div className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg" onClick={() => handleClick('userProfile')}>
             <img
               className='rounded-full w-8 h-8'
               src={avatar} alt="profile_img" />
@@ -77,7 +77,14 @@ const Navbar = () => {
             <MdKeyboardArrowDown className='text-gray-400 text-14'></MdKeyboardArrowDown>
           </div>
         </TooltipComponent>
+
+        {isClicked.cart && <Cart/>}
+        {isClicked.chat && <Chat/>}
+        {isClicked.notification && <Notification/>}
+        {isClicked.userProfile && <UserProfile/>}
+
       </div>
+
     </div>
   )
 }

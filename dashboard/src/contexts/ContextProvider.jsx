@@ -1,4 +1,4 @@
-import React ,{createContext, useContext, useState} from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 const StateContext = createContext();
 
@@ -9,10 +9,22 @@ const initialState = {
   notification: false
 }
 
-export const ContextProvider = ({children}) => {
+export const ContextProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(true);
+  const [isClicked, setisClicked] = useState(initialState);
+
+  const handleClick = (clicked) => {
+    // setisClicked(clicked)
+    setisClicked({...initialState, [clicked]: true});
+  }
   return (
-    <StateContext.Provider value={{activeMenu,setActiveMenu}}>
+    <StateContext.Provider value={{ 
+      activeMenu, 
+      setActiveMenu,
+      isClicked,
+      setisClicked,
+      handleClick
+      }}>
       {children}
     </StateContext.Provider>
   )
