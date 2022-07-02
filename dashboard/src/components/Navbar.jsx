@@ -29,7 +29,6 @@ const Navbar = () => {
   }, [])
 
   useEffect(() => {
-    console.log(screenSize)
     if(screenSize <= 900) {
       setActiveMenu(false);
     } else {
