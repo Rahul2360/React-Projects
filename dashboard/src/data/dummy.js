@@ -538,22 +538,22 @@ export const links = [
         name: 'pie',
         icon: <FiPieChart />,
       },
-      {
-        name: 'financial',
-        icon: <RiStockLine />,
-      },
-      {
-        name: 'color-mapping',
-        icon: <BsBarChart />,
-      },
-      {
-        name: 'pyramid',
-        icon: <GiLouvrePyramid />,
-      },
-      {
-        name: 'stacked',
-        icon: <AiOutlineBarChart />,
-      },
+      // {
+      //   name: 'financial',
+      //   icon: <RiStockLine />,
+      // },
+      // {
+      //   name: 'color-mapping',
+      //   icon: <BsBarChart />,
+      // },
+      // {
+      //   name: 'pyramid',
+      //   icon: <GiLouvrePyramid />,
+      // },
+      // {
+      //   name: 'stacked',
+      //   icon: <AiOutlineBarChart />,
+      // },
     ],
   },
 ];
@@ -2849,8 +2849,8 @@ export const scheduleData = [
     Id: 1,
     Subject: 'Explosion of Betelgeuse Star',
     Location: 'Space Center USA',
-    StartTime: '2021-01-10T04:00:00.000Z',
-    EndTime: '2021-01-10T05:30:00.000Z',
+    StartTime: '2022-07-03T04:00:00.000Z',
+    EndTime: '2022-07-04T05:30:00.000Z',
     CategoryColor: '#1aaa55',
   },
   {
