@@ -1,12 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import "./common.css";
 import Button from "react-bootstrap/Button";
 import AddUserModal from "./add-user-modal";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowDown,
-  faCoffee,
   faSort,
   faSortDown,
   faSortUp,
@@ -38,23 +36,27 @@ function User(props) {
     switch (type) {
       case "asc":
         userData.sort((a, b) => {
-          if (typeof a[col] == "string") {
+          if (typeof a[col] === "string") {
             return a[col].localeCompare(b[col]);
-          } else if (typeof a[col] == "number") {
+          } else if (typeof a[col] === "number") {
             return a[col] - b[col];
           }
+          return true;
         });
         break;
       case "desc":
         userData.sort((a, b) => {
-          if (typeof a[col] == "string") {
+          if (typeof a[col] === "string") {
             return b[col].localeCompare(a[col]);
-          } else if (typeof a[col] == "number") {
+          } else if (typeof a[col] === "number") {
             return b[col] - a[col];
           }
+          return true;
         });
         break;
       case "default":
+        break;
+      default:
         break;
     }
     console.log(userData);
