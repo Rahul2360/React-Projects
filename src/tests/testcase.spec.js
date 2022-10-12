@@ -75,7 +75,7 @@ test.describe("Test cases", () => {
       email: "test2@last.com",
     });
     expect(postRequest.ok()).toBeTruthy()
-    expect(postRequest.status()).toBe(200)
+    expect(postRequest.status()).toBe(201)
     expect(await postRequest.json()).toHaveProperty("id")
   })
 });
