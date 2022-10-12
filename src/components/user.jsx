@@ -90,7 +90,7 @@ function User(props) {
       >
         Add User
       </Button>
-      <table className="table table-bordered">
+      <table className="table table-bordered mb-0">
         <thead>
           <tr>
             {tableHederData.map((column, index) => {
