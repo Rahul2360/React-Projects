@@ -93,11 +93,12 @@ function AddUser(props) {
       <Form className="p-2" validated={validated} onSubmit={submitButton}>
         <Row>
           <Col>
-            <Form.Group className="mb-2" controlId="firstName">
+            <Form.Group className="mb-2">
               <Form.Label>First Name</Form.Label>
               <Form.Control
                 type="text"
                 name="first_name"
+                id="firstName"
                 placeholder="Enter first name"
                 onChange={inputsHandler}
                 value={userField.first_name}
@@ -109,11 +110,12 @@ function AddUser(props) {
             </Form.Group>
           </Col>
           <Col>
-            <Form.Group className="mb-2" controlId="lastName">
+            <Form.Group className="mb-2">
               <Form.Label>Last Name</Form.Label>
               <Form.Control
                 type="text"
                 name="last_name"
+                id="lastName"
                 placeholder="Enter last name"
                 onChange={inputsHandler}
                 value={userField.last_name}
@@ -126,11 +128,12 @@ function AddUser(props) {
           </Col>
         </Row>
 
-        <Form.Group className="mb-2" controlId="email">
+        <Form.Group className="mb-2">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             type="email"
             name="email"
+            id="email"
             placeholder="Enter email"
             onChange={inputsHandler}
             value={userField.email}
@@ -146,6 +149,7 @@ function AddUser(props) {
           disabled={formSubmit}
           className="float-right"
           type="button"
+          id="saveUserDetails"
           onClick={submitButton}
         >
            {formSubmit && <Spinner

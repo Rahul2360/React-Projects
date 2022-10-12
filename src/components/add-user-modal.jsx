@@ -8,6 +8,7 @@ function AddUserModal(props) {
       backdrop="static"
       keyboard={false}
       size="lg"
+      id="addUserModal"
       {...props}
       aria-labelledby="contained-modal-title-vcenter"
       // centered

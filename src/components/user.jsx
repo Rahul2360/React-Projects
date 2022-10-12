@@ -79,12 +79,14 @@ function User(props) {
         <Button
           variant="primary"
           className="mb-2"
+          id="toggleTheme"
           onClick={() => toggleTheme()}
         >
           Toggle Theme
         </Button>
       <Button
         variant="primary"
+        id="addUser"
         className="mb-2 float-right"
         onClick={() => setModalShow(true)}
       >

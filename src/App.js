@@ -7,7 +7,7 @@ function App() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div className={`App ${theme}`}>
+    <div id="app" className={`App ${theme}`}>
       <User />
     </div>
   );
