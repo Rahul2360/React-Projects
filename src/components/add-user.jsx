@@ -87,7 +87,7 @@ function AddUser(props) {
           onClose={() => setshowAlert(false)}
           dismissible
         >
-          Data saved sucessfully
+          User created sucessfully
         </Alert>
       )}
       <Form className="p-2" validated={validated} onSubmit={submitButton}>

@@ -1,14 +1,15 @@
+import { useContext } from 'react';
 import './App.css';
-// import Search from './components/search';
+import { ThemeContext } from './components/theme';
 import User from './components/user';
 
 function App() {
-  return (
-    <div className="App">
-      {/* <Search/> */}
-      <User/>
-    </div>
+  const { theme } = useContext(ThemeContext);
 
+  return (
+    <div className={`App ${theme}`}>
+      <User />
+    </div>
   );
 }
 

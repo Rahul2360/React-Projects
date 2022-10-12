@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./common.css";
 import Button from "react-bootstrap/Button";
 import AddUserModal from "./add-user-modal";
@@ -9,12 +9,15 @@ import {
   faSortDown,
   faSortUp,
 } from "@fortawesome/free-solid-svg-icons";
+import { ThemeContext } from "./theme";
 
 function User(props) {
   const mockDataUrl = "https://reqres.in/api/users";
   const [userData, setuserData] = useState([]);
   const [modalShow, setModalShow] = useState(false);
   const [currentSort, setCurrentSort] = useState("default");
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   const tableHederData = [
     { prop: "avatar", label: "" },
     { prop: "id", label: "Id" },
@@ -71,8 +74,15 @@ function User(props) {
   };
 
   return (
-    <div className="container">
+    <div className="container pt-4">
       <AddUserModal show={modalShow} onHide={() => setModalShow(false)} />
+        <Button
+          variant="primary"
+          className="mb-2"
+          onClick={() => toggleTheme()}
+        >
+          Toggle Theme
+        </Button>
       <Button
         variant="primary"
         className="mb-2 float-right"

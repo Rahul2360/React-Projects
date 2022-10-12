@@ -46,3 +46,7 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.table {
+  color: var(--text-primary) !important;
+}
