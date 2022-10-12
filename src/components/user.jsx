@@ -25,9 +25,17 @@ function User(props) {
   // Get mock data from url
   useEffect(() => {
     fetch(mockDataUrl)
-      .then((results) => results.json())
+      .then((res) => {
+        if (res.status >= 400) {
+          throw new Error("Server responds with error!");
+        }
+        return res.json();
+      })
       .then((data) => {
         setuserData(data.data);
+      })
+      .catch((err) => {
+        console.log(err)
       });
   }, []);
 

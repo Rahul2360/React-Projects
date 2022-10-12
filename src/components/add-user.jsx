@@ -39,8 +39,8 @@ function AddUser(props) {
     }
     setValidated(true);
     if (
-      userField.first_name != "" &&
-      userField.last_name != "" &&
+      userField.first_name !== "" &&
+      userField.last_name !== "" &&
       isValidEmail(userField.email)
     ) {
       setFormSubmit(true);
@@ -55,7 +55,12 @@ function AddUser(props) {
       body: JSON.stringify(userField),
     };
     fetch(mockDataUrl, requestOptions)
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status >= 400) {
+          throw new Error("Server responds with error!");
+        }
+        return response.json()
+      })
       .then((data) => {
         setshowAlert(true);
         setUserField({
@@ -68,6 +73,9 @@ function AddUser(props) {
         setTimeout(() => {
           setshowAlert(false);
         }, 5000);
+      })
+      .catch((err) => {
+        console.log(err)
       });
   };
 
